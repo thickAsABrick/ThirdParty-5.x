@@ -41,13 +41,13 @@ libdir		= ../../lib
 include ../Makefile.inc
 
 %$(EXE)	:	%$(OBJ)
-		 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -o $(@) -shared -L$(libdir) -l$(SCOTCHLIB) -lscotch -l$(SCOTCHLIB)errexit $(LDFLAGS)
+		 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -o $(@) -L$(libdir) -l$(SCOTCHLIB) -lscotch -l$(SCOTCHLIB)errexit $(LDFLAGS)
 
 %$(OBJ)	:	%.c
 				$(CC) $(CFLAGS) -I$(includedir) -I../libscotch -c $(<) -o $(@)
 
 %$(EXE)	:	%.c
-		 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -o $(@) -shared -L$(libdir) -l$(SCOTCHLIB) -lscotch -l$(SCOTCHLIB)errexit $(LDFLAGS)
+		 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -o $(@) -L$(libdir) -l$(SCOTCHLIB) -lscotch -l$(SCOTCHLIB)errexit $(LDFLAGS)
 
 ##
 ##  Project rules.
@@ -205,7 +205,7 @@ dgpart$(EXE)			:	dgmap.c					\
 					$(libdir)/libptscotch$(LIB)		\
 					$(libdir)/libptscotcherrexit$(LIB)	\
 					dgmap.h
-			 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -DSCOTCH_COMPILE_PART -o $(@) -shared -L$(libdir) -lptscotch -lscotch -lptscotcherrexit $(LDFLAGS)
+			 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -DSCOTCH_COMPILE_PART -o $(@) -L$(libdir) -lptscotch -lscotch -lptscotcherrexit $(LDFLAGS)
 
 dgscat$(EXE)			:	dgscat.c				\
 					../libscotch/module.h			\
@@ -315,7 +315,7 @@ gout$(EXE)			:	gout_c.c				\
 					gout_o.c				\
 					$(includedir)/scotch.h			\
 					$(libdir)/libscotch$(LIB)
-					$(CC) $(CFLAGS) -I../libscotch -I$(includedir) gout_c.c gout_o.c -o $(@) -shared -L$(libdir) -lscotch -lscotcherrexit $(LDFLAGS)
+					$(CC) $(CFLAGS) -I../libscotch -I$(includedir) gout_c.c gout_o.c -o $(@) -L$(libdir) -lscotch -lscotcherrexit $(LDFLAGS)
 
 gpart$(EXE)			:	gmap.c					\
 					../libscotch/module.h			\
@@ -324,7 +324,7 @@ gpart$(EXE)			:	gmap.c					\
 					$(libdir)/libscotch$(LIB)		\
 					$(libdir)/libscotcherrexit$(LIB)	\
 					gmap.h
-			 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -DSCOTCH_COMPILE_PART -o $(@) -shared -L$(libdir) -lscotch -lscotcherrexit $(LDFLAGS)
+			 		$(CC) $(CFLAGS) -I$(includedir) -I../libscotch $(<) -DSCOTCH_COMPILE_PART -o $(@) -L$(libdir) -lscotch -lscotcherrexit $(LDFLAGS)
 
 gscat$(EXE)			:	gscat.c					\
 					../libscotch/module.h			\
