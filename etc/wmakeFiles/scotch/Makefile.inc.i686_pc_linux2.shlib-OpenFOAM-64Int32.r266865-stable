@@ -1,0 +1,24 @@
+current         = r266865-stable
+ZLIB_HOME       = $(OPENFOAM_HOME)/OpenFOAM/zlib-1.2.8
+EXE		=
+LIB		= .so
+OBJ		= .o
+
+MAKE		= make
+AR		= ar
+ARFLAGS		= -ruv
+CAT		= cat
+CCS             = /home/projects/llvm/$(current)/mpi/bgclang.legacy/bin/mpiclang -O3 -funroll-loops
+CCP             = /home/projects/llvm/$(current)/mpi/bgclang.legacy/bin/mpiclang -O3 -funroll-loops
+CCD             = /home/projects/llvm/$(current)/mpi/bgclang.legacy/bin/mpiclang -O3 -funroll-loops
+CFLAGS          = -m64 -g -I$(ZLIB_HOME)/ClangBGQ39-$(current)/include -O3 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -DSCOTCH_RENAME_PARSER -Drestrict=__restrict
+CLIBFLAGS	= -fPIC
+LDFLAGS		= -L$(ZLIB_HOME)/ClangBGQ39-$(current)/lib -lz -lm -lrt
+LIBLDFLAGS      = -shared
+CP		= cp
+LEX		= flex -Pscotchyy -olex.yy.c
+LN		= ln
+MKDIR		= mkdir
+MV		= mv
+RANLIB		= echo
+YACC		= bison -pscotchyy -y -b y

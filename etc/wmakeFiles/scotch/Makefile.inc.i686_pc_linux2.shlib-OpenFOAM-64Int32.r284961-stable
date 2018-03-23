@@ -8,15 +8,10 @@ MAKE		= make
 AR		= ar
 ARFLAGS		= -ruv
 CAT		= cat
-CCS             = /soft/compilers/bgclang/mpi/bgclang-mpi3.legacy.ndebug/bin/mpiclang -O3 -funroll-loops
-CCP             = /soft/compilers/bgclang/mpi/bgclang-mpi3.legacy.ndebug/bin/mpiclang -O3 -funroll-loops
-CCD             = /soft/compilers/bgclang/mpi/bgclang-mpi3.legacy.ndebug/bin/mpiclang -O3 -funroll-loops
+CCS             = /home/projects/llvm/$(current)/mpi/bgclang.legacy/bin/mpiclang -O3 -funroll-loops
+CCP             = /home/projects/llvm/$(current)/mpi/bgclang.legacy/bin/mpiclang -O3 -funroll-loops
+CCD             = /home/projects/llvm/$(current)/mpi/bgclang.legacy/bin/mpiclang -O3 -funroll-loops
 CFLAGS          = -m64 -g -I$(ZLIB_HOME)/ClangBGQ40-$(current)/include -O3 -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -DSCOTCH_RENAME_PARSER -Drestrict=__restrict
-
-ifeq ($(WM_LABEL_OPTION),Int64)
-CFLAGS          += -DINTSIZE64
-endif
-
 CLIBFLAGS	= -fPIC
 LDFLAGS		= -L$(ZLIB_HOME)/ClangBGQ40-$(current)/lib -lz -lm -lrt
 LIBLDFLAGS      = -shared
