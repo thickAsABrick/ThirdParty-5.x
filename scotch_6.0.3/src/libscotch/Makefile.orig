@@ -2948,23 +2948,19 @@ ptdummysizes$(EXE)		:	dummysizes.c				\
 
 scotch.h			:	dummysizes$(EXE)			\
 					library.h
-#					./dummysizes$(EXE) library.h scotch.h
-					cp scotch.h.orig scotch.h
+					./dummysizes$(EXE) library.h scotch.h
 
 scotchf.h			:	dummysizes$(EXE) 			\
 					library_f.h
-#					./dummysizes$(EXE) library_f.h scotchf.h
-					cp scotchf.h.orig scotchf.h
+					./dummysizes$(EXE) library_f.h scotchf.h
 
 ptscotch.h			:	ptdummysizes$(EXE)			\
 					library_pt.h
-#					./ptdummysizes$(EXE) library_pt.h ptscotch.h
-					cp ptscotch.h.orig ptscotch.h
+					./ptdummysizes$(EXE) library_pt.h ptscotch.h
 
 ptscotchf.h			:	ptdummysizes$(EXE)			\
 					library_pt_f.h
-#					./ptdummysizes$(EXE) library_pt_f.h ptscotchf.h
-					cp ptscotchf.h.orig ptscotchf.h
+					./ptdummysizes$(EXE) library_pt_f.h ptscotchf.h
 
 libscotch$(LIB)			:	$(LIBSCOTCHDEPS)
 					$(AR) $(ARFLAGS) $(@) $(?)
