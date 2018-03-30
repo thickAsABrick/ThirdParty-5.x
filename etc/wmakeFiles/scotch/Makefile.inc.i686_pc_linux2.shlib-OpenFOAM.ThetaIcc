@@ -1,0 +1,27 @@
+EXE		=
+LIB		= .so
+OBJ		= .o
+
+MAKE		= make
+AR		= `which cc`
+ARFLAGS		= $(WM_CFLAGS) -shared -o
+CAT		= cat
+CCS             = `which cc`
+CCP             = `which cc`
+CCD             = `which cc`
+CFLAGS          = -O3 -g -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_RANDOM_FIXED_SEED -DSCOTCH_RENAME -DSCOTCH_RENAME_PARSER -Drestrict=__restrict
+
+ifeq ($(WM_LABEL_OPTION),Int64)
+CFLAGS          += -DINTSIZE64
+endif
+
+CLIBFLAGS       = -shared -fPIC
+LDFLAGS         = -Xlinker --no-as-needed $(WM_LDFLAGS) -lz -lm -lrt
+LIBLDFLAGS      = -shared
+CP		= cp
+LEX		= flex -Pscotchyy -olex.yy.c
+LN		= ln
+MKDIR		= mkdir
+MV		= mv
+RANLIB		= echo
+YACC		= bison -pscotchyy -y -b y
